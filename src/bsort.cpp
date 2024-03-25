@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
-#include "Swap.h"
+#include "swap.h"
 
 void Bsort(void* arrPoint, int arrSize, int typeSize, int (*Comparator)(const void*, const void*))
 {

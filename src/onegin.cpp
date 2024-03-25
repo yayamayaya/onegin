@@ -1,12 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <assert.h>
-#include <string.h>
-#include <stdint.h>
-#include "fileReader.h"
-#include "Bsort.h"
-#include "Swap.h"
-#include <ctype.h>
+#include "main_header.h"
 
 typedef struct string {
     char *strPointer;
