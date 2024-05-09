@@ -1,3 +1,6 @@
+> locale is sit, starting file-reading
+> file was read, dumping read file into a log:
+--------------------------------------------------------------------
 Не мысля гордый свет забавить,
 Вниманье дружбы возлюбя,
 Хотел бы я тебе представить
@@ -7213,3 +7216,8 @@ XVII
 И постепенно сетью тайной
 Россия .........
 Наш царь дремал.....
+
+--------------------------------------------------------------------
+> sorting in alphabet order:
+> sorting in reverse alphabet order:
+> programm completed

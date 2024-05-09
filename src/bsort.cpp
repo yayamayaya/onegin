@@ -1,9 +1,8 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <stdint.h>
-#include "swap.h"
+#include "include/swap.h"
 
-void Bsort(void* arrPoint, int arrSize, int typeSize, int (*Comparator)(const void*, const void*))
+void bsort(void* arr_ptr, int arr_size, int type_size, int (*comparator)(void*, void*))
 {
     for (int pass = 0; pass < arrSize - 1; pass++)
         for (int i = 0; i < arrSize - pass - 1; i++)

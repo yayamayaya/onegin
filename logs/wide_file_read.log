@@ -1,0 +1,6 @@
+> reading file into a buffer:
+> size of wchar: 4
+> detecting wide buff size:
+> wide char buffer size: 163463
+> allocating memory for wchar buffer:
+> closing logfile
