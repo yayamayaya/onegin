@@ -8108,10 +8108,7 @@ une  petite  vergette  faite expres, ouvrage qu'il continua fierement devant
 *
 *
 . . . . . . . . . . . . . .
-. . . . . . . . . . . . . .
-. . . . . . . . . . . . . .
-. . . . . . . . . . . . . .
-. . . . . . . . . . . . . .
+. . . . . . . . . . . . . . .
 . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . .
@@ -8124,11 +8121,25 @@ une  petite  vergette  faite expres, ouvrage qu'il continua fierement devant
 . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . .
-. . . . . . . . . . . . . . .
+. . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . .
+. . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . .
@@ -8137,97 +8148,86 @@ une  petite  vergette  faite expres, ouvrage qu'il continua fierement devant
 . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . .
+. . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . .
 . . . . . . . . . . . . . . . . . .
-. . . . . . . . . . . . . . . . . . .
-. . . . . . . . . . . . . . . . . . .
-. . . . . . . . . . . . . . . . . . .
-. . . . . . . . . . . . . . . . . . .
-. . . . . . . . . . . . . . . . . . .
-. . . . . . . . . . . . . . . . . . .
-. . . . . . . . . . . . . . . . . . .
-. . . . . . . . . . . . . . . . . . .
-. . . . . . . . . . . . . . . . . . .
-. . . . . . . . . . . . . . . . . . .
-. . . . . . . . . . . . . . . . . . .
-. . . . . . . . . . . . . . . . . . .
-. . . . . . . . . . . . . . . . . . .
-. . . . . . . . . . . . . . . . . . .
-. . . . . . . . . . . . . . . . . . .
-. . . . . . . . . . . . . . . . . . .
-. . . . . . . . . . . . . . . . . . .
-. . . . . . . . . . . . . . . . . . .
-25
 29
+25
 35
 42
 9
-I
-I
-I
-I
-I
-I
-I
-I
-II
-II
-II
-II
-II
-II
-II
-II
-III
-III
-III
-III
-III
-III
-III
-III
+XLIII
 LIII
 LIII
 XLIII
 XLIII
 XLIII
 XLIII
-XLIII
+VIII
+XLVIII
+XLVIII
+XLVIII
+XLVIII
 LVIII
-VIII
-VIII
-VIII
-VIII
-VIII
-VIII
-VIII
-VIII
-XLVIII
-XLVIII
-XLVIII
-XLVIII
-XVIII
-XVIII
-XVIII
+XXVIII
+XXVIII
+XXVIII
+XXVIII
 XVIII
 XVIII
 XVIII
 XVIII
 XVIII
 XXVIII
+XVIII
+XVIII
+XVIII
+VIII
+VIII
+VIII
+VIII
 XXVIII
 XXVIII
 XXVIII
-XXVIII
-XXVIII
-XXVIII
-XXVIII
+VIII
+VIII
+VIII
 XXXVIII
 XXXVIII
 XXXVIII
 XXXVIII
 XXXVIII
 XIII
+XXIII
+XXIII
+XXIII
+XXIII
+XXIII
+XXIII
+XXXIII
+XXXIII
+XXXIII
+XXXIII
+XXXIII
+XXXIII
+XXXIII
+XXXIII
+XXIII
+XXIII
+III
+III
+III
+III
+III
+III
+III
+III
 XIII
 XIII
 XIII
@@ -8235,72 +8235,57 @@ XIII
 XIII
 XIII
 XIII
-XXIII
-XXIII
-XXIII
-XXIII
-XXIII
-XXIII
-XXIII
-XXIII
-XXXIII
-XXXIII
-XXXIII
-XXXIII
-XXXIII
-XXXIII
-XXXIII
-XXXIII
+XLII
+XLII
+XLII
+ХLII
+ХLII
+ХLII
 LII
 LII
-XLII
-XLII
-XLII
-ХLII
-ХLII
-ХLII
+XLVII
+XLVII
+XLVII
+XLVII
 LVII
-VII
-VII
-VII
-VII
-VII
-VII
-VII
-VII
-VII
 XLVII
-XLVII
-XLVII
-XLVII
-XLVII
+XVII
+XVII
+XVII
 XV. XVI. XVII
-XVII
-XVII
-XVII
-XVII
-XVII
-XVII
-XVII
-XVII
-XXVII
-XXVII
-XXVII
-XXVII
-XXVII
-XXVII
-XXVII
-XXVII
 XXXVI. XXXVII
+XVII
+XVII
+XVII
+XVII
+XXVII
 XXXVII
 XXXVII
 XXXVII
 XXXVII
 XXXVII
+VII
+VII
+VII
 XXXVII
-XII
-XII
-XII
+XXVII
+XXVII
+XXVII
+XVII
+VII
+VII
+VII
+VII
+VII
+VII
+XXVII
+XXVII
+XXVII
+XXVII
+XXII
+XXII
+XXII
+XXII
 XII
 XII
 XII
@@ -8308,11 +8293,19 @@ XII
 XII
 XII
 XXII
+XII
+XII
+XII
 XXII
-XXII
-XXII
-XXII
-XXII
+II
+II
+II
+II
+II
+XXXII
+XXXII
+II
+II
 XXII
 XXII
 XXXII
@@ -8321,73 +8314,56 @@ XXXII
 XXXII
 XXXII
 XXXII
-XXXII
-XXXII
-LI
-LI
-LI
+II
 LI
 XLI
 XLI
 XXXIX. ХL. ХLI
 ХLI
 ХLI
+LI
+LI
+LI
 ХLI
 ХLI
 I. II. III. IV. V. VI.
+XLVI
+XLVI
+XLVI
+XLVI
+XLVI
 LVI
-VI
-VI
-VI
-VI
-VI
-VI
-VI
-VI
-XLVI
-XLVI
-XLVI
-XLVI
-XLVI
+XXXVI
+XXVI
+XXXVI
+XVI
+XXXVI
+XXXVI
 XVI
 XVI
 XVI
 XVI
-XVI
-XVI
-XVI
-XVI
-XXVI
-XXVI
-XXVI
-XXVI
-XXVI
-XXVI
-XXVI
-XXVI
 XXXVI
 XXXVI
 XXXVI
-XXXVI
-XXXVI
-XXXVI
-XXXVI
-XI
-XI
-XI
-XI
-XI
-XI
-XI
-XI
-XI
-XXI
-XXI
-XXI
-XXI
-XXI
-XXI
-XXI
+XVI
+XVI
+XVI
+XXVI
+XXVI
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+VI
+XXVI
+XXVI
+XXVI
+XXVI
+XXVI
 XXI
 XXXI
 XXXI
@@ -8397,54 +8373,53 @@ XXXI
 XXXI
 XXXI
 XXXI
-L
-L
-L
-L
+XI
+XXI
+XXI
+XXI
+XXI
+XXI
+XXI
+XXI
+XI
+XI
+I
+I
+I
+I
+I
+I
+I
+I
+XI
+XI
+XI
+XI
+XI
+XI
 XL
 XL
 XL
+ХL
+L
+L
+L
+L
 XXXIX. ХL
 ХL
 ХL
-ХL
-IV
-IV
-IV
-IV
-IV
-IV
-IV
-IV
-LIV
-LIV
-LV
-LV
-V
-V
-V
-V
-V
-V
-V
-V
+XLIV
+XLIV
 XLIII. XLIV
 XLIV
 XLIV
-XLIV
-XLIV
 ХLIV
+LIV
+LIV
 XIII. XIV
-XIV
-XIV
-XIV
-XIV
-XIV
-XIV
-XIV
-XIV
 XXIV
 XXIV
+IV
 XXIV
 XXIV
 XXIV
@@ -8454,93 +8429,103 @@ XXIV
 XXXIV
 XXXIV
 XXXIV
+XIV
+XIV
+XIV
+XIV
+XIV
+XIV
+XIV
+XIV
 XXXIV
 XXXIV
 XXXIV
 XXXIV
 XXXIV
+IV
+IV
+IV
+IV
+IV
+IV
+IV
+LV
 XLV
 XLV
 XLV
 XLV
 ХLV
+LV
 ХLV
-XV
-XV
-XV
-XV
-XV
-XV
-XV
-XV
+XXXV
+V
 XXV
-XXV
-XXV
-XXV
-XXV
-XXV
+XXXV
 XXV
 XXV
 XXXV
 XXXV
 XXXV
+XXV
+XV
+XV
+XV
+XXXV
+V
+V
+V
+V
+XV
+XV
+XV
+XV
+V
+XV
 XXXV
 XXXV
-XXXV
-XXXV
-XXXV
+XXV
+V
+XXV
+V
+XXV
+XXV
 VIII. IX. X
-IX
-IX
-IX
-IX
-IX
-IX
-IX
-IX
+XLIX
 LIX
-LX
-X
-X
-X
-X
-X
-X
-X
 XLIX
 XLIX
 XLIX
-XLIX
-XIX
-XIX
-XIX
-XIX
-XIX
-XIX
-XIX
-XIX
 XXIX
-XXIX
-XXIX
-XXIX
-XXIX
-XXIX
-XXIX
-XXIX
+IX
+IX
+XXXVIII. XXXIX
+IX
+IX
+IX
+IX
 XXXIX
+XIX
+XIX
+XIX
+XIX
+XIX
+XIX
+XIX
+XIX
 XXXIX
+XXIX
+IX
 XXXIX
+XXIX
+XXIX
+XXIX
+XXIX
+XXIX
+IX
+XXIX
+XXXVIII. XXXIX
 XXXVII. XXXVIII. XXXIX
-XXXVIII. XXXIX
-XXXVIII. XXXIX
-XX
-XX
-XX
-XX
-XX
-XX
-XX
-XX
+LX
 XXX
 XXX
 XXX
@@ -8548,7 +8533,22 @@ XXX
 XXX
 XXX
 XXX
+X
+X
+X
+X
+XX
 XXX
+XX
+XX
+XX
+XX
+XX
+X
+X
+X
+XX
+XX
 Поставил belle Tatiana.
 И смело вместо belle Nina
 И слез, и рифм et cetera?..
@@ -9833,8 +9833,8 @@ Beef-stеаks и страсбургский пирог
 Тут непременно вы найдете
 У нас теперь не то в предмете:
 Зачем у вас я на примете?
-И в молчаливом кабинете
 И в молчаливом кабинете,
+И в молчаливом кабинете
 Куда стремглав в ямской карете
 Кто там в малиновом берете
 Тут верно клятвы вы прочтете
@@ -14049,8 +14049,8 @@ Sed alia tempora! Удалость
 Но так и быть! Судьбу мою
 Быть может, на беду мою,
 Примите исповедь мою:
-Татьяну милую мою
 Татьяну милую мою!
+Татьяну милую мою
 Здесь с ним обедывал зимою
 Сравняла пухлой пеленою;
 Вишеньем, малиною,
@@ -14345,8 +14345,8 @@ Sed alia tempora! Удалость
 Сей легкой жизнию, друзья!
 Уж эти мне друзья, друзья!
 Прелестны, милые друзья!
-Купаюсь, милые друзья! {40}
 Купаюсь, милые друзья.
+Купаюсь, милые друзья! {40}
 Сегодня, милые друзья,
 Людей священные друзья;
 Нецеремонные друзья,

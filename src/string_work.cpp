@@ -1,6 +1,6 @@
 #include "include/string_work.h"
 
-int str_cmp(void *ptr1, void *ptr2)
+int str_cmp(const void *ptr1, const void *ptr2)
 {
     assert(ptr1);
     assert(ptr2);
@@ -16,7 +16,7 @@ int str_cmp(void *ptr1, void *ptr2)
     return str1->str_ptr[pos] - str2->str_ptr[pos];
 }
 
-int reverse_str_cmp(void *ptr1, void *ptr2)
+int reverse_str_cmp(const void *ptr1, const void *ptr2)
 {
     assert(ptr1);
     assert(ptr2);

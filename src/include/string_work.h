@@ -15,8 +15,8 @@ enum ONEG_ERRS
     OUTPUT_OPN_ERR,
 };
 
-int str_cmp(void *ptr1, void *ptr2);
-int reverse_str_cmp(void *ptr1, void *ptr2);
+int str_cmp(const void *ptr1, const void *ptr2);
+int reverse_str_cmp(const void *ptr1, const void *ptr2);
 void string_print(FILE *out, string* strings, int str_number);
 
 #endif

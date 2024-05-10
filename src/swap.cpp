@@ -6,11 +6,11 @@ void mem_dump(void *ptr, int size);
 
 void mem_swap(void* first_ptr, void* second_ptr, int size)
 {
-    _OPEN_A_LOG("logs/swapping.log");
     uint64_t temp = 0;
     int pos = 0;
 
 #ifdef FULL_DUMP
+    _OPEN_A_LOG("logs/swapping.log");
     LOG("> swapping memory of size: %d\n", size);
     mem_dump(first_ptr, size);
     mem_dump(second_ptr, size);
