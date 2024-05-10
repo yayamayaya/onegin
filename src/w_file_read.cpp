@@ -29,7 +29,14 @@ int w_file_read(wchar_t **arr_ptr, int *w_file_size, const char *directory)
 
     LOG("> allocating memory for wchar buffer:\n");
     wchar_t *wbuff = (wchar_t *)calloc(wide_file_size + 1, sizeof(wchar_t));
-
+    if (!wbuff)
+    {
+        LOG("[error]>>> wide char memory allocation error\n");
+        free(buff);
+        _CLOSE_LOG();
+        return WCHAR_MEM_ALC_ERR;
+    }
+    
     int shift = mbstowcs(wbuff, buff, file_size);
     if (shift == -1)
     {

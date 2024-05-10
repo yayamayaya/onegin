@@ -15,6 +15,7 @@ typedef struct string {
 enum STR_READ_ERRS
 {
     ONLY_ONE_STR = 1818,
+    STR_ARR_MEM_ALC_ERR,
 };
 
 int read_strings(string_t **strs, int *string_number, wchar_t *buff, const int buff_size);

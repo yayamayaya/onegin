@@ -2,11 +2,13 @@
 #include "include/string_reader.h"
 #include "include/string_work.h"
 #include "include/bsort.h"
+#include "include/qsort.h"
 
 _INIT_LOG();
 
 int main(int argc, char **argv) 
 {
+    _CLEAR_LOGS();
     if (argc != 3)
     {
         printf("> number of arguments does not match needed (write input and output files)\n");
@@ -53,12 +55,12 @@ int main(int argc, char **argv)
 
     W_LOG(L"> sorting in alphabet order:\n");
     fwprintf(out, L"#sorting text in alphabet order:\n\n");
-    bsort(strs, string_number, sizeof(string_t), str_cmp);
+    quick_sort(strs, string_number, sizeof(string_t), str_cmp);
     string_print(out, strs, string_number);
 
     W_LOG(L"> sorting in reverse alphabet order:\n");
     fwprintf(out, L"\n#sorting in alphabet order from the end:\n\n");
-    bsort(strs, string_number, sizeof(string_t), reverse_str_cmp);
+    quick_sort(strs, string_number, sizeof(string_t), reverse_str_cmp);
     string_print(out, strs, string_number);
 
     W_LOG(L"> programm completed\n");

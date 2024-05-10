@@ -26,6 +26,13 @@ int read_strings(string_t **strs, int *string_number, wchar_t *buff, const int b
 
     LOG("> starting string array creation\n");
     string_t *stroki = (string_t *)calloc(strs_num, sizeof(string_t));
+    if (!stroki)
+    {
+        LOG("[error]>>> string array memory alocation error\n");
+        free(buff);
+        _CLOSE_LOG();
+        return STR_ARR_MEM_ALC_ERR;
+    }
 
     stroki[0].str_ptr = buff;
     for (int str = 1; str < strs_num; str++)
