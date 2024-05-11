@@ -1,4 +1,4 @@
-#include "include/string_work.h"
+#include "string_work.h"
 
 int str_cmp(const void *ptr1, const void *ptr2)
 {

@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <assert.h>
 #include "wchar.h"
-#include "../../../common/logging/log.h"
+#include "log.h"
 
 typedef struct string {
     wchar_t *str_ptr;

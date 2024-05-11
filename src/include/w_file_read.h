@@ -5,8 +5,8 @@
 #include <stdlib.h>
 #include <wchar.h>
 #include <assert.h>
-#include "../../../common/logging/log.h"
-#include "../../../common/file_reading/src/file_reading.h"
+#include "log.h"
+#include "file_reading.h"
 
 enum CHAR_SIZE
 {

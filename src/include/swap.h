@@ -6,7 +6,7 @@
 #include <memory.h>
 #include <stdint.h>
 #include <assert.h>
-#include "../../../common/logging/log.h"
+#include "log.h"
 
 void mem_swap(void* first_ptr, void* second_ptr, int size);
 

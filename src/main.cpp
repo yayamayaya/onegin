@@ -1,8 +1,7 @@
 #include <locale.h>
-#include "include/string_reader.h"
-#include "include/string_work.h"
-#include "include/bsort.h"
-#include "include/qsort.h"
+#include "string_reader.h"
+#include "string_work.h"
+#include "qsort.h"
 
 _INIT_LOG();
 
