@@ -1,4 +1,4 @@
-#include "include/string_reader.h"
+#include "string_reader.h"
 
 _INIT_LOG();
 
@@ -12,7 +12,7 @@ int read_strings(string_t **strs, int *string_number, wchar_t *buff, const int b
 
     _OPEN_LOG("logs/stringerizator.log");
 
-    LOG("> detecting nubmer of strings:");
+    LOG("> detecting nubmer of strings:\n");
     int strs_num = 0;
     take_string_number(&strs_num, buff);    
     if (strs_num == 1)

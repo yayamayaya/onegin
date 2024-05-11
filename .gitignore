@@ -1,1 +1,2 @@
-compileFolder/test.c
+build
+.vscode/c_cpp_properties.json

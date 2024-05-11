@@ -1,4 +1,4 @@
-#include "include/qsort.h"
+#include "qsort.h"
 
 void quick_sort(void *arr, int arr_size, int type_size, int (*comparator)(const void *, const void *))
 {
