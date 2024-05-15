@@ -1,2 +1,5 @@
 r:
-	valgrind --leak-check=full --show-leak-kinds=all ./build/src/oneg ${out} ${text}
+	./build/src/onegin ${out} ${in}
+	
+rval:
+	valgrind --leak-check=full --show-leak-kinds=all ./build/src/onegin ${out} ${in}
