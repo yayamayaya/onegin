@@ -39,6 +39,7 @@ int read_strings(string_t **strs, int *string_number, wchar_t *buff, const int b
     {
         stroki[str].str_ptr = wcschr(stroki[str - 1].str_ptr, '\0') + 1; 
         stroki[str - 1].str_len = stroki[str].str_ptr - stroki[str - 1].str_ptr;
+        
         if(*stroki[str].str_ptr == '\n')
             stroki[str].str_ptr += 1;
         
@@ -70,6 +71,8 @@ void take_string_number(int *string_number, wchar_t *buff)
             LOG("> \\n founded, it must be an LF system\n");
             buff[pos] = '\0';
             str_num++;
+            while (buff[pos + 1] == '\n')
+                pos++;
         }
         else if (buff[pos] == '\r')
         {
@@ -77,9 +80,11 @@ void take_string_number(int *string_number, wchar_t *buff)
             buff[pos] = '\0';
             pos++;
             str_num++;
+            while (buff[pos + 1] == '\r')
+                pos += 2;
         }
-        
-        pos++;
+
+        pos++;   
     }
 
     if (buff[pos - 1] != '\n' && buff[pos - 1] != '\0')
