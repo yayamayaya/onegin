@@ -67,4 +67,6 @@ int main(int argc, char **argv)
     free(strs);
     free(buff);
     _CLOSE_LOG();
+
+    return 0;
 }
