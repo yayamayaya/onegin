@@ -2,6 +2,7 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
+<<<<<<< HEAD
 			"label": "project build",
 			"type": "shell",
 			"command": "cmake",
@@ -23,6 +24,13 @@
 			"detail": "run a makefile to compile a project",
 			"dependsOn": "project build",
 			"problemMatcher": [],
+=======
+			"type": "cmake",
+			"label": "CMake: configure",
+			"command": "configure",
+			"problemMatcher": [],
+			"detail": "CMake template configure task",
+>>>>>>> ec97871f0db983db28e5b3dc8d848fbddc0baf54
 			"group": {
 				"kind": "build",
 				"isDefault": true
