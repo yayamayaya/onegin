@@ -1,84 +1,86 @@
+#include <assert.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <wchar.h>
+
+#include "file_reading.h"
+#include "log.h"
 #include "w_file_read.h"
 
-_INIT_LOG();
+size_t get_w_file_size(char *buff, const size_t file_size);
 
-void get_w_file_size(int *w_file_size, char *buff, const int file_size);
+int w_file_read(wchar_t **arr_ptr, size_t *w_file_size, const char *directory) {
+  assert(arr_ptr);
+  assert(directory);
 
-int w_file_read(wchar_t **arr_ptr, int *w_file_size, const char *directory)
-{
-    assert(arr_ptr);
-    assert(directory);
-    _OPEN_LOG("logs/wide_file_read.log");
+  char *buff = NULL;
+  size_t file_size = 0;
 
-    char *buff = NULL;
-    int file_size = 0;
+  LOG("reading file into a buffer");
+  int error = file_read(&buff, &file_size, directory);
+  if (error) {
+    LOG_ERR("file reading error");
+    return error;
+  }
 
-    LOG("> reading file into a buffer:\n");
-    int error = file_read(&buff, &file_size, directory);
-    if (error)
-    {
-        LOG("[error]>>> file reading error\n");
-        _CLOSE_LOG();
-        return error;
-    }
+  LOG("size of wchar: %ld", sizeof(wchar_t));
+  LOG("detecting wide buff size");
+  size_t wide_file_size = get_w_file_size(buff, file_size);
 
-    LOG("> size of wchar: %ld\n", sizeof(wchar_t));
-    LOG("> detecting wide buff size:\n");
-    int wide_file_size = 0;
-    get_w_file_size(&wide_file_size, buff, file_size);
-
-    LOG("> allocating memory for wchar buffer:\n");
-    wchar_t *wbuff = (wchar_t *)calloc(wide_file_size + 1, sizeof(wchar_t));
-    if (!wbuff)
-    {
-        LOG("[error]>>> wide char memory allocation error\n");
-        free(buff);
-        _CLOSE_LOG();
-        return WCHAR_MEM_ALC_ERR;
-    }
-    
-    int shift = mbstowcs(wbuff, buff, file_size);
-    if (shift == -1)
-    {
-        LOG("[error]>>> wide char reading error\n");
-        _CLOSE_LOG();
-        free(buff);
-        free(wbuff);
-        return W_CHAR_READ_ERR;
-    }
-    
-    if (w_file_size)
-        *w_file_size = wide_file_size;
-
-    *arr_ptr = wbuff;
-
+  LOG("allocating memory for wchar buffer");
+  wchar_t *wbuff = (wchar_t *)calloc(wide_file_size + 1, sizeof(wchar_t));
+  if (!wbuff) {
+    LOG("wide char memory allocation error");
     free(buff);
-    _CLOSE_LOG();
-    return NO_ERR;
+    return WCHAR_MEM_ALC_ERR;
+  }
+
+  if (mbstowcs(wbuff, buff, file_size) == -1) {
+    LOG("wide char reading error");
+    free(buff);
+    free(wbuff);
+    return W_CHAR_READ_ERR;
+  }
+
+  if (w_file_size)
+    *w_file_size = wide_file_size;
+
+  *arr_ptr = wbuff;
+
+  free(buff);
+  _CLOSE_LOG();
+  return 0;
 }
 
-void get_w_file_size(int *w_file_size, char *buff, const int file_size)
-{
-    assert(buff);
-    assert(w_file_size);
+size_t get_w_file_size(char *buff, const size_t file_size) {
+  assert(buff);
 
-    int wide_buff_size = 0;
-    
-    for (int pos = 0; pos < file_size;)
-    {
-        switch (buff[pos] & 0xF0)
-        {
-        case 0xF0:  pos += 4;   break;
-        case 0xE0:  pos += 3;   break;
+  int wide_buff_size = 0;
 
-        default:
-        if (buff[pos] & 0x80)   pos += 2;
-        else                    pos++;
-        }
+  for (int pos = 0; pos < file_size;) {
+    switch (buff[pos] & 0xF0) {
+    // 1111 ...
+    case 0xF0:
+      pos += 4;
+      break;
 
-        wide_buff_size++;
+    // 1110 ...
+    case 0xE0:
+      pos += 3;
+      break;
+
+      // case 0
+
+    default:
+      if (buff[pos] & 0x80)
+        pos += 2;
+      else
+        pos++;
     }
-    
-    *w_file_size = wide_buff_size;
-    LOG("> wide char buffer size: %d\n", wide_buff_size);
+
+    wide_buff_size++;
+  }
+
+  LOG("wide char buffer size: %d", wide_buff_size);
+  return wide_buff_size;
 }
