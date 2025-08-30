@@ -13,6 +13,8 @@ static FILE *log_file = NULL;
 static const char log_dir_name[] = "logs";
 
 static const size_t log_msg_size = 250;
+static const char err_type[] = "ERROR";
+static const char info_type[] = "INFO";
 
 int log_init(const char *log_name) {
   DIR *log_dir = opendir(log_dir_name);
@@ -45,8 +47,8 @@ void log_msg(const int option, const wchar_t *format, ...) {
   va_list args = {};
   va_start(args, format);
 
-  const wchar_t *log_type = (option == ERR) ? L"Error" : L"Message";
-  swprintf(log_msg, sizeof(log_msg), L"[%ld] %s: %s\n", clock(), log_type,
+  const char *log_type = (option == ERR) ? err_type : info_type;
+  swprintf(log_msg, sizeof(log_msg), L"[%ld] %s: %ls\n", clock(), log_type,
            format);
 
   if (log_file)

@@ -3,7 +3,7 @@
 
 typedef struct string {
   wchar_t *str_ptr;
-  int str_len;
+  long int str_len;
 } string_t;
 
 enum STR_READ_ERRS {
@@ -11,7 +11,7 @@ enum STR_READ_ERRS {
   STR_ARR_MEM_ALC_ERR = 1819,
 };
 
-int read_strings(string_t **strs, int *string_number, wchar_t *buff,
-                 const int buff_size);
+int read_strings(string_t **strs, size_t *string_number, wchar_t *buff,
+                 const size_t buff_size);
 
 #endif

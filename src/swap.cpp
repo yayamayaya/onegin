@@ -1,4 +1,5 @@
 #include <assert.h>
+#include <cstdint>
 #include <memory.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -49,6 +50,9 @@ void mem_swap(void *first_ptr, void *second_ptr, int size) {
   }
 }
 
+// h e l \0
+// h e l l w \0
+
 void mem_dump(void *ptr, int size) {
   LOG("0b");
 
@@ -56,7 +60,7 @@ void mem_dump(void *ptr, int size) {
     uint8_t byte = *((uint8_t *)ptr + i);
     for (int j = 0; j < 8; j++) {
       LOG("%c", (byte & 0x80) ? '1' : '0');
-      byte <<= 1;
+      byte = (uint8_t)(byte << 1);
     }
     LOG(" ");
   }

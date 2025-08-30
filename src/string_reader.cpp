@@ -6,17 +6,17 @@
 #include "log.h"
 #include "string_reader.h"
 
-void take_string_number(int *string_number, wchar_t *buff);
+size_t take_string_number(wchar_t *buff);
 
-int read_strings(string_t **strs, int *string_number, wchar_t *buff,
-                 const int buff_size) {
+int read_strings(string_t **strs, size_t *string_number, wchar_t *buff,
+                 const size_t buff_size) {
   assert(strs);
   assert(string_number);
   assert(buff);
 
   LOG("detecting nubmer of strings");
-  int strs_num = 0;
-  take_string_number(&strs_num, buff);
+  size_t strs_num = take_string_number(buff);
+
   if (strs_num == 1) {
     LOG_ERR("file has only 1 string");
     printf("Warning: file has only 1 string, programm will not be executed\n");
@@ -33,7 +33,7 @@ int read_strings(string_t **strs, int *string_number, wchar_t *buff,
   }
 
   stroki[0].str_ptr = buff;
-  for (int str = 1; str < strs_num; str++) {
+  for (size_t str = 1; str < strs_num; str++) {
     stroki[str].str_ptr = wcschr(stroki[str - 1].str_ptr, '\0') + 1;
     stroki[str - 1].str_len = stroki[str].str_ptr - stroki[str - 1].str_ptr;
 
@@ -55,12 +55,11 @@ int read_strings(string_t **strs, int *string_number, wchar_t *buff,
   return 0;
 }
 
-void take_string_number(int *string_number, wchar_t *buff) {
-  assert(string_number);
+size_t take_string_number(wchar_t *buff) {
   assert(buff);
 
   int pos = 0;
-  int str_num = 0;
+  size_t str_num = 0;
   while (buff[pos] != '\0') {
     if (buff[pos] == '\n') {
       buff[pos] = '\0';
@@ -82,7 +81,6 @@ void take_string_number(int *string_number, wchar_t *buff) {
     str_num++;
 
   LOG("total number of strings is: %d", str_num);
-  *string_number = str_num;
 
-  return;
+  return str_num;
 }

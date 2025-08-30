@@ -35,7 +35,7 @@ int w_file_read(wchar_t **arr_ptr, size_t *w_file_size, const char *directory) {
     return WCHAR_MEM_ALC_ERR;
   }
 
-  if (mbstowcs(wbuff, buff, file_size) == -1) {
+  if (mbstowcs(wbuff, buff, file_size) == (size_t)-1) {
     LOG("wide char reading error");
     free(buff);
     free(wbuff);
@@ -55,9 +55,9 @@ int w_file_read(wchar_t **arr_ptr, size_t *w_file_size, const char *directory) {
 size_t get_w_file_size(char *buff, const size_t file_size) {
   assert(buff);
 
-  int wide_buff_size = 0;
+  size_t wide_buff_size = 0;
 
-  for (int pos = 0; pos < file_size;) {
+  for (size_t pos = 0; pos < file_size;) {
     switch (buff[pos] & 0xF0) {
     // 1111 ...
     case 0xF0:
@@ -69,13 +69,12 @@ size_t get_w_file_size(char *buff, const size_t file_size) {
       pos += 3;
       break;
 
-      // case 0
-
     default:
       if (buff[pos] & 0x80)
         pos += 2;
       else
         pos++;
+      break;
     }
 
     wide_buff_size++;

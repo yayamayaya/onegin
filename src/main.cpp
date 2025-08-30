@@ -29,10 +29,9 @@ int main(int argc, char **argv) {
     _CLOSE_LOG();
     return error;
   }
-
   LOG("file was read");
 
-  int string_number = 0;
+  size_t string_number = 0;
   string_t *strs = NULL;
   error = read_strings(&strs, &string_number, buff, size);
   if (error) {
@@ -52,12 +51,12 @@ int main(int argc, char **argv) {
 
   LOG("sorting in alphabet order");
   fwprintf(out, L"#sorting text in alphabet order:\n\n");
-  quick_sort(strs, string_number, sizeof(string_t), str_cmp);
+  quick_sort(strs, (int)string_number, sizeof(string_t), str_cmp);
   string_print(out, strs, string_number);
 
   LOG("sorting in reverse alphabet order");
   fwprintf(out, L"\n#sorting in alphabet order from the end:\n\n");
-  quick_sort(strs, string_number, sizeof(string_t), reverse_str_cmp);
+  quick_sort(strs, (int)string_number, sizeof(string_t), reverse_str_cmp);
   string_print(out, strs, string_number);
 
   LOG("programm completed");
