@@ -3,7 +3,6 @@
 #include "bsort.h"
 #include "swap.h"
 #include <stdint.h>
-#include <stdio.h>
 
 void bsort(void *arr_ptr, int arr_size, int type_size,
            int (*comparator)(const void *, const void *)) {

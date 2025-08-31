@@ -1,4 +1,5 @@
 #include <assert.h>
+#include <cwctype>
 #include <stdio.h>
 #include <stdlib.h>
 #include <wchar.h>
@@ -34,18 +35,17 @@ int read_strings(string_t **strs, size_t *string_number, wchar_t *buff,
 
   stroki[0].str_ptr = buff;
   for (size_t str = 1; str < strs_num; str++) {
+    // fix string start
     stroki[str].str_ptr = wcschr(stroki[str - 1].str_ptr, '\0') + 1;
+    // fix string length
     stroki[str - 1].str_len = stroki[str].str_ptr - stroki[str - 1].str_ptr;
 
     if (*stroki[str].str_ptr == '\n')
       stroki[str].str_ptr += 1;
-
-    LOG("> string with length: %d found\n", stroki[str - 1].str_len);
   }
   stroki[strs_num - 1].str_len =
       &buff[buff_size + 1] - stroki[strs_num - 1].str_ptr;
 
-  LOG("string with length: %d found", stroki[strs_num - 1].str_len);
   LOG("string array created successfully");
 
   *strs = stroki;
@@ -61,24 +61,16 @@ size_t take_string_number(wchar_t *buff) {
   int pos = 0;
   size_t str_num = 0;
   while (buff[pos] != '\0') {
-    if (buff[pos] == '\n') {
+    if (buff[pos] == '\n' || buff[pos] == '\r') {
       buff[pos] = '\0';
       str_num++;
-      while (buff[pos + 1] == '\n')
-        pos++;
-    } else if (buff[pos] == '\r') {
-      buff[pos] = '\0';
+
+      while (iswspace((wint_t)buff[++pos]))
+        ;
+    } else {
       pos++;
-      str_num++;
-      while (buff[pos + 1] == '\r')
-        pos += 2;
     }
-
-    pos++;
   }
-
-  if (buff[pos - 1] != '\n' && buff[pos - 1] != '\0')
-    str_num++;
 
   LOG("total number of strings is: %d", str_num);
 
