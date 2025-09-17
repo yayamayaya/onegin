@@ -17,10 +17,9 @@ enum CharSizes {
 
 size_t get_w_file_size(char *buff, const size_t file_size);
 
-int w_file_read(wchar_t **arr_ptr, size_t *w_file_size, const char *directory) {
-  assert(arr_ptr);
+int w_file_read(FileData *onegin_data, const char *directory) {
   assert(directory);
-  assert(w_file_size);
+  assert(onegin_data);
 
   char *buff = NULL;
   size_t file_size = 0;
@@ -55,10 +54,8 @@ int w_file_read(wchar_t **arr_ptr, size_t *w_file_size, const char *directory) {
     return W_CHAR_READ_ERR;
   }
 
-  if (w_file_size)
-    *w_file_size = wide_file_size;
-
-  *arr_ptr = wbuff;
+  onegin_data->file_buf = wbuff;
+  onegin_data->buf_size = wide_file_size;
 
   free(buff);
   return 0;

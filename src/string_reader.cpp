@@ -5,15 +5,20 @@
 #include <wchar.h>
 
 #include "log.h"
+#include "onegin_program.h"
 #include "string_reader.h"
 
 size_t take_string_number(wchar_t *buff);
 
-int read_strings(string_t **strs, size_t *string_number, wchar_t *buff,
-                 const size_t buff_size) {
-  assert(strs);
-  assert(string_number);
-  assert(buff);
+void skip_new_line_chars(const wchar_t *buff, int *pos);
+
+wchar_t *skip_new_line_chars_arr(wchar_t *buff);
+
+int read_strings(FileData *onegin_data) {
+  assert(onegin_data);
+
+  wchar_t *buff = onegin_data->file_buf;
+  const size_t buff_size = onegin_data->buf_size;
 
   LOG("detecting nubmer of strings");
   size_t strs_num = take_string_number(buff);
@@ -21,7 +26,6 @@ int read_strings(string_t **strs, size_t *string_number, wchar_t *buff,
   if (strs_num == 1) {
     LOG_ERR("file has only 1 string");
     printf("Warning: file has only 1 string, programm will not be executed\n");
-    free(buff);
     return ONLY_ONE_STR;
   }
 
@@ -29,28 +33,25 @@ int read_strings(string_t **strs, size_t *string_number, wchar_t *buff,
   string_t *stroki = (string_t *)calloc(strs_num, sizeof(string_t));
   if (!stroki) {
     LOG_ERR("string array memory alocation error");
-    free(buff);
     return STR_ARR_MEM_ALC_ERR;
   }
 
-  stroki[0].str_ptr = buff;
-  for (size_t str = 1; str < strs_num; str++) {
-    // fix string start
-    stroki[str].str_ptr = wcschr(stroki[str - 1].str_ptr, '\0') + 1;
-    // fix string length
-    stroki[str - 1].str_len = stroki[str].str_ptr - stroki[str - 1].str_ptr;
+  stroki[0].str_ptr = skip_new_line_chars_arr(buff);
 
-    if (*stroki[str].str_ptr == '\n')
-      stroki[str].str_ptr += 1;
+  for (size_t str = 1; str < strs_num; str++) {
+    wchar_t *new_line = wcschr(stroki[str - 1].str_ptr, '\0');
+
+    stroki[str - 1].str_len = new_line - stroki[str - 1].str_ptr;
+    stroki[str].str_ptr = skip_new_line_chars_arr(++new_line);
   }
+
   stroki[strs_num - 1].str_len =
       &buff[buff_size + 1] - stroki[strs_num - 1].str_ptr;
 
   LOG("string array created successfully");
 
-  *strs = stroki;
-  if (string_number)
-    *string_number = strs_num;
+  onegin_data->string_data = stroki;
+  onegin_data->strings_data_size = strs_num;
 
   return 0;
 }
@@ -60,19 +61,35 @@ size_t take_string_number(wchar_t *buff) {
 
   int pos = 0;
   size_t str_num = 0;
-  while (buff[pos] != '\0') {
+
+  skip_new_line_chars(buff, &pos);
+
+  do {
     if (buff[pos] == '\n' || buff[pos] == '\r') {
-      buff[pos] = '\0';
+      buff[pos++] = '\0';
       str_num++;
 
-      while (iswspace((wint_t)buff[++pos]))
-        ;
-    } else {
-      pos++;
+      skip_new_line_chars(buff, &pos);
     }
-  }
+  } while (buff[pos++] != '\0');
 
   LOG("total number of strings is: %d", str_num);
 
   return str_num;
+}
+
+void skip_new_line_chars(const wchar_t *buff, int *pos) {
+  assert(buff);
+  assert(pos);
+
+  while (iswspace((wint_t)buff[*pos]))
+    (*pos)++;
+}
+
+wchar_t *skip_new_line_chars_arr(wchar_t *buff) {
+  assert(buff);
+  while (iswspace((wint_t)*buff))
+    buff++;
+
+  return buff;
 }

@@ -50,9 +50,6 @@ void mem_swap(void *first_ptr, void *second_ptr, int size) {
   }
 }
 
-// h e l \0
-// h e l l w \0
-
 void mem_dump(void *ptr, int size) {
   LOG("0b");
 

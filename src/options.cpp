@@ -11,13 +11,14 @@ void print_help_message();
 
 char *copy_string(const char *str);
 
-OneginFiles parse_options(const int argc, const char *argv[]) {
+OneginFiles parse_options(const int argc, char *const argv[]) {
   OneginFiles res = {NULL, NULL};
 
   const struct option longopts[] = {
       {"help", no_argument, NULL, 'h'},
       {"input", required_argument, NULL, 'i'},
       {"output", required_argument, NULL, 'o'},
+      {NULL, 0, NULL, '\0'},
   };
 
   LOG("Parsing onegin options");
@@ -26,7 +27,7 @@ OneginFiles parse_options(const int argc, const char *argv[]) {
     switch (opt) {
 
     case '?':
-      printf("Unknown argument, please rewind arguments");
+      printf("Unknown argument, please rewind arguments\n");
       LOG_ERR("Unknown argument error");
       [[fallthrough]];
     case 'h':
@@ -60,6 +61,8 @@ OneginFiles parse_options(const int argc, const char *argv[]) {
     LOG("No output file given, writing to stdout");
     res.output = stdout;
   }
+
+  return res;
 }
 
 char *copy_string(const char *str) {

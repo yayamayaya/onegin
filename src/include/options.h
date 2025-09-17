@@ -3,12 +3,14 @@
 
 #include <stdio.h>
 
+const int ONEGIN_FILES_OPEN_ERR = 1111;
+
 typedef struct files {
-  const char *input_file_name;
+  char *input_file_name;
   FILE *output;
 } OneginFiles;
 
-OneginFiles parse_options(const int argc, const char *argv[]);
+OneginFiles parse_options(const int argc, char *const argv[]);
 
 bool is_files_null(const OneginFiles *files);
 

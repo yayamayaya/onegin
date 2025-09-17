@@ -1,3 +1,4 @@
+#include <assert.h>
 #include <locale.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -11,62 +12,58 @@
 #include "string_work.h"
 #include "w_file_read.h"
 
-int run_onegin(int argc, char *argv[]) {
-  if (argc != 3) {
-    printf("> number of arguments does not match needed"
-           "(write input and output files)\n");
-    return ARGC_ERR;
-  }
+void sort_text(FILE *out, string *strs, const size_t string_number);
 
-  _OPEN_LOG("onegin.log");
-  wchar_t *buff = NULL;
-  size_t size = 0;
+int run_onegin(const OneginFiles *files) {
+  assert(files);
+
+  FileData file_data = {NULL, 0, NULL, 0};
+  int ret_val = 0;
 
   setlocale(LC_ALL, "ru_RU.UTF-8");
 
   LOG("locale is set, starting file-reading");
-  int error = w_file_read(&buff, &size, argv[2]);
-  if (error) {
-    _CLOSE_LOG();
-    return error;
-  }
-  LOG("file was read");
+  ret_val = w_file_read(&file_data, files->input_file_name);
+  if (ret_val)
+    goto finish;
 
-  size_t string_number = 0;
-  string_t *strs = NULL;
-  error = read_strings(&strs, &string_number, buff, size);
-  if (error) {
-    free(buff);
-    _CLOSE_LOG();
-    return error;
-  }
+  LOG("parsing file into strings");
+  ret_val = read_strings(&file_data);
+  if (ret_val)
+    goto finish;
 
-  LOG("opening output file");
-  FILE *out = fopen(argv[1], "w");
-  if (!out) {
-    LOG_ERR("couldn't open output file");
-    free(buff);
-    free(strs);
-    _CLOSE_LOG();
-    return OUTPUT_OPN_ERR;
-  }
+  sort_text(files->output, file_data.string_data, file_data.strings_data_size);
+
+finish:
+  free(file_data.file_buf);
+  free(file_data.string_data);
+
+  return ret_val;
+}
+
+void sort_text(FILE *out, string_t *strs, const size_t string_number) {
+  assert(out);
+  assert(strs);
 
   LOG("sorting in alphabet order");
-  fwprintf(out, L"#sorting text in alphabet order:\n\n");
+  fwprintf(out,
+           L"-------------------------------------------------------------"
+           L"----------------------\n"
+           L"-------------------------Sorting text in alphabet "
+           L"order----------------------------\n"
+           L"--------------------------------------------------------------"
+           L"---------------------\n");
   quick_sort(strs, (int)string_number, sizeof(string_t), str_cmp);
   string_print(out, strs, string_number);
 
   LOG("sorting in reverse alphabet order");
-  fwprintf(out, L"\n#sorting in alphabet order from the end:\n\n");
+  fwprintf(out,
+           L"------------------------------------------------------------------"
+           L"-----------------\n"
+           L"---------------------Sorting text in alphabet from end of "
+           L"the----------------------\n"
+           L"--------------------------------------------------------------"
+           L"---------------------\n");
   quick_sort(strs, (int)string_number, sizeof(string_t), reverse_str_cmp);
   string_print(out, strs, string_number);
-
-  LOG("programm completed");
-
-  fclose(out);
-  free(strs);
-  free(buff);
-  _CLOSE_LOG();
-
-  return 0;
 }
